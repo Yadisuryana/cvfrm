@@ -12,7 +12,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="text-2xl font-bold">
-          <Link href="/latihan5" className="hover:text-blue-600 transition">
+          <Link href="/" className="hover:text-blue-600 transition">
             TradeHaven
           </Link>
         </div>
@@ -20,14 +20,14 @@ const Navbar = () => {
         {/* Menu Desktop */}
         <ul className="hidden md:flex space-x-6">
           <li>
-            <Link href="/latihan5" className="hover:text-blue-600 transition">
+            <Link href="/" className="hover:text-blue-600 transition">
               Home
             </Link>
           </li>
-          {["About", "Skills", "Portfolio", "Layanan", "Kontak"].map((item) => (
+          {["about", "skills", "portfolio", "layanan", "kontak"].map((item) => (
             <li key={item}>
-              <Link href={`/latihan5/${item.toLowerCase()}`} className="hover:text-blue-600 transition">
-                {item}
+              <Link href={`/${item}`} className="hover:text-blue-600 transition">
+                {item.charAt(0).toUpperCase() + item.slice(1)}
               </Link>
             </li>
           ))}
@@ -44,14 +44,14 @@ const Navbar = () => {
         <div className="md:hidden mt-4 bg-gradient-to-r from-blue-100 to-white p-4 shadow-lg transition-all duration-300">
           <ul className="flex flex-col space-y-4">
             <li>
-              <Link href="/latihan5" className="block p-2 hover:bg-blue-300 rounded-lg transition">
+              <Link href="/" className="block p-2 hover:bg-blue-300 rounded-lg transition" onClick={() => setMenuOpen(false)}>
                 Home
               </Link>
             </li>
-            {["About", "Skills", "Portfolio", "Layanan", "Kontak"].map((item) => (
+            {["about", "skills", "portfolio", "layanan", "kontak"].map((item) => (
               <li key={item}>
-                <Link href={`/latihan5/${item.toLowerCase()}`} className="block p-2 hover:bg-blue-300 rounded-lg transition">
-                  {item}
+                <Link href={`/${item}`} className="block p-2 hover:bg-blue-300 rounded-lg transition" onClick={() => setMenuOpen(false)}>
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
                 </Link>
               </li>
             ))}
