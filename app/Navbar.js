@@ -36,27 +36,27 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="/about" className="hover:text-blue-600 transition">
+            <Link href="/about/page" className="hover:text-blue-600 transition">
               About
             </Link>
           </li>
           <li>
-            <Link href="/skills" className="hover:text-blue-600 transition">
+            <Link href="/skills/page" className="hover:text-blue-600 transition">
               Skills
             </Link>
           </li>
           <li>
-            <Link href="/portfolio" className="hover:text-blue-600 transition">
+            <Link href="/portfolio/page" className="hover:text-blue-600 transition">
               Portfolio
             </Link>
           </li>
           <li>
-            <Link href="/layanan" className="hover:text-blue-600 transition">
+            <Link href="/layanan/page" className="hover:text-blue-600 transition">
               Layanan
             </Link>
           </li>
           <li>
-            <Link href="/kontak" className="hover:text-blue-600 transition">
+            <Link href="/kontak/page" className="hover:text-blue-600 transition">
               Kontak
             </Link>
           </li>
@@ -90,7 +90,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              href="/about"
+              href="/about/page"
               className="block p-2 hover:bg-blue-300 rounded-lg transition"
               onClick={() => setMenuOpen(false)}
             >
@@ -99,7 +99,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              href="/skills"
+              href="/skills/page"
               className="block p-2 hover:bg-blue-300 rounded-lg transition"
               onClick={() => setMenuOpen(false)}
             >
@@ -108,7 +108,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              href="/portfolio"
+              href="/portfolio/page"
               className="block p-2 hover:bg-blue-300 rounded-lg transition"
               onClick={() => setMenuOpen(false)}
             >
@@ -117,7 +117,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              href="/layanan"
+              href="/layanan/page"
               className="block p-2 hover:bg-blue-300 rounded-lg transition"
               onClick={() => setMenuOpen(false)}
             >
@@ -126,7 +126,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              href="/kontak"
+              href="/kontak/page"
               className="block p-2 hover:bg-blue-300 rounded-lg transition"
               onClick={() => setMenuOpen(false)}
             >
