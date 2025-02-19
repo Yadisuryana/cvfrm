@@ -1,11 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // Tutup menu otomatis saat layar lebih besar dari mobile
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <nav className="bg-gradient-to-r from-blue-200 to-white text-gray-900 p-4 shadow-lg">
@@ -24,40 +35,106 @@ const Navbar = () => {
               Home
             </Link>
           </li>
-          {["about", "skills", "portfolio", "layanan", "kontak"].map((item) => (
-            <li key={item}>
-              <Link href={`/${item}`} className="hover:text-blue-600 transition">
-                {item.charAt(0).toUpperCase() + item.slice(1)}
-              </Link>
-            </li>
-          ))}
+          <li>
+            <Link href="/about/page" className="hover:text-blue-600 transition">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link href="/skills/page" className="hover:text-blue-600 transition">
+              Skills
+            </Link>
+          </li>
+          <li>
+            <Link href="/portfolio/page" className="hover:text-blue-600 transition">
+              Portfolio
+            </Link>
+          </li>
+          <li>
+            <Link href="/layanan/page" className="hover:text-blue-600 transition">
+              Layanan
+            </Link>
+          </li>
+          <li>
+            <Link href="/kontak/page" className="hover:text-blue-600 transition">
+              Kontak
+            </Link>
+          </li>
         </ul>
 
         {/* Toggle Button */}
-        <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden focus:outline-none">
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden focus:outline-none"
+          aria-label="Toggle Menu"
+        >
           {menuOpen ? <X size={28} className="text-gray-900" /> : <Menu size={28} className="text-gray-900" />}
         </button>
       </div>
 
       {/* Menu Mobile */}
-      {menuOpen && (
-        <div className="md:hidden mt-4 bg-gradient-to-r from-blue-100 to-white p-4 shadow-lg transition-all duration-300">
-          <ul className="flex flex-col space-y-4">
-            <li>
-              <Link href="/" className="block p-2 hover:bg-blue-300 rounded-lg transition" onClick={() => setMenuOpen(false)}>
-                Home
-              </Link>
-            </li>
-            {["about", "skills", "portfolio", "layanan", "kontak"].map((item) => (
-              <li key={item}>
-                <Link href={`/${item}`} className="block p-2 hover:bg-blue-300 rounded-lg transition" onClick={() => setMenuOpen(false)}>
-                  {item.charAt(0).toUpperCase() + item.slice(1)}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div
+        className={`absolute top-16 left-0 w-full bg-gradient-to-r from-blue-100 to-white p-4 shadow-lg transition-all duration-300 ${
+          menuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
+      >
+        <ul className="flex flex-col space-y-4">
+          <li>
+            <Link
+              href="/"
+              className="block p-2 hover:bg-blue-300 rounded-lg transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/about/page"
+              className="block p-2 hover:bg-blue-300 rounded-lg transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              About
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/skills/page"
+              className="block p-2 hover:bg-blue-300 rounded-lg transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              Skills
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/portfolio/page"
+              className="block p-2 hover:bg-blue-300 rounded-lg transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              Portfolio
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/layanan/page"
+              className="block p-2 hover:bg-blue-300 rounded-lg transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              Layanan
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/kontak/page"
+              className="block p-2 hover:bg-blue-300 rounded-lg transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              Kontak
+            </Link>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 };
