@@ -1,65 +1,26 @@
 "use client";
 
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
-import Link from "next/link";
-
-const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-
+export default function Page() {
   return (
-    <nav className="bg-gradient-to-r from-blue-700 to-purple-700 text-white p-4 shadow-lg">
-      <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <div className="text-2xl font-bold">
-          <Link href="/" className="hover:text-blue-300 transition">
-            TradeHaven
-          </Link>
+    <div className="min-h-screen bg-white flex items-center justify-center">
+      <main className="p-10 flex flex-col items-center text-center">
+        <img
+          src="/profile.jpg"
+          alt="Yadi Suryana"
+          className="w-40 h-40 object-cover rounded-full border-4 border-blue-500 shadow-lg mb-4"
+        />
+
+        <h1 className="text-4xl font-bold text-black">Yadi Suryana</h1>
+        <h2 className="text-xl text-gray-700">Front End Developer</h2>
+
+        {/* Container untuk paragraf dengan background gradasi biru ke putih */}
+        <div className="mt-6 p-6 bg-gradient-to-r from-blue-200 to-white rounded-lg shadow-lg max-w-xl">
+          <p className="text-black">
+            Saya seorang pengembang front-end dengan pengalaman dalam HTML, CSS, JavaScript, dan framework seperti React dan Next.js.
+            Saya senang membangun antarmuka yang interaktif dan responsif.
+          </p>
         </div>
-
-        {/* Menu Desktop */}
-        <ul className="hidden md:flex space-x-6">
-          <li>
-            <Link href="/" className="hover:text-blue-300 transition">
-              Home
-            </Link>
-          </li>
-          {["about", "skills", "portfolio", "layanan", "kontak"].map((item) => (
-            <li key={item}>
-              <Link href={`/${item}`} className="hover:text-blue-300 transition">
-                {item.charAt(0).toUpperCase() + item.slice(1)}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        {/* Toggle Button */}
-        <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden focus:outline-none">
-          {menuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </div>
-
-      {/* Menu Mobile */}
-      {menuOpen && (
-        <div className="md:hidden mt-4 bg-gradient-to-r from-blue-600 to-purple-600 p-4 rounded-lg shadow-lg">
-          <ul className="flex flex-col space-y-4">
-            <li>
-              <Link href="/" className="block p-2 hover:bg-blue-500 rounded-lg transition" onClick={() => setMenuOpen(false)}>
-                Home
-              </Link>
-            </li>
-            {["about", "skills", "portfolio", "layanan", "kontak"].map((item) => (
-              <li key={item}>
-                <Link href={`/${item}`} className="block p-2 hover:bg-blue-500 rounded-lg transition" onClick={() => setMenuOpen(false)}>
-                  {item.charAt(0).toUpperCase() + item.slice(1)}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </nav>
+      </main>
+    </div>
   );
-};
-
-export default Navbar;
+}
